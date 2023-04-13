@@ -7,4 +7,6 @@ include_directories(part1)
 
 add_executable(ex0
         part1/part1.c
-        part1/part1.h)
+        part1/part1.h
+        part1/ReadWrite.c
+        part1/Suspend.c)
