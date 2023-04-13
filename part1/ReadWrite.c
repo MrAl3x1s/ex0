@@ -1,7 +1,6 @@
-#include "General.h"
+#include "ReadWrite.h"
 
 bool readLine(char** output) {
-	
 	// allocate space for new line, and create pointer.
 	char *input = (char*)(calloc(MAX_STR_SIZE, sizeof(char)));
 	if (input == NULL) {
@@ -41,6 +40,7 @@ bool readLine(char** output) {
 	(*output) = str;
 
 	return true;
+    }
 }
 
 bool readInt(int* address) {
