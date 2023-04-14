@@ -7,7 +7,7 @@ bool readLine(char** output) {
 		return false;
 	}
 	#ifndef NDEBUG
-		printf("Created pointer at address: %d\n", &input);
+		printf("\n* Created pointer at address: %d\n", &input);
 	#endif
 	
 	// read line from standard input stream.
@@ -20,12 +20,12 @@ bool readLine(char** output) {
 	// append correct ending character.
 	input[len++] = '\0';
 	#ifndef NDEBUG
-		printf("Read string: %s Of length: %d\n", input, len);
+		printf("\n* Read string: %s Of length: %d\n", input, len);
 	#endif
 	// create string of appropriate length and free up the rest of the space.
 	char str[len];
 	#ifndef NDEBUG
-		printf("Created pointer at address: %d\n", &str);
+		printf("\n* Created pointer at address: %d\n", &str);
 	#endif
 	
 	for (int i = 0; i < len; i++) {
@@ -34,7 +34,7 @@ bool readLine(char** output) {
 	
 	free(input);
 	#ifndef NDEBUG
-		printf("Freed pointer at address %d\n", &input);
+		printf("\n* Freed pointer at address %d\n", &input);
 	#endif
 	
 	(*output) = str;
@@ -47,7 +47,7 @@ bool readInt(int* address) {
 	if (!readLine(&input))
 		return false;
 	#ifndef NDEBUG
-		printf("Read line: %s\n", input);
+		printf("\n* Read line: %s\n", input);
 	#endif
 	
 	int index = 0;
@@ -59,7 +59,7 @@ bool readInt(int* address) {
 		else {
 			int dig = (int)(current) - '0';
 			#ifndef NDEBUG
-				printf("Translated digit %c to %d\n", current, dig);
+				printf("\n* Translated digit %c to %d\n", current, dig);
 			#endif
 			total = total * 10 + dig;
 			index++;
@@ -78,7 +78,7 @@ bool readChar(char* target) {
 		input = getchar();
 	}
 	#ifndef NDEBUG
-		printf("Read character: %c", input);
+		printf("\n* Read character: %c", input);
 	#endif
 	
 	if (target != NULL)
