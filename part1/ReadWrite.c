@@ -34,7 +34,7 @@ bool readLine(char** output) {
 	
 	free(input);
 	#ifndef NDEBUG
-		printf("\n* Freed pointer at address %d\n", &input);
+		printf("\n* Freed pointer at address: %d\n", &input);
 	#endif
 	
 	(*output) = str;
