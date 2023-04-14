@@ -20,10 +20,8 @@ int main(void){
     #endif
     // record every number in turn.
     printf("Enter numbers:\n");
-    // clean input stream.
-    scanf("%*s");
     for (int i = 0; i < size; i++) {
-        if (scanf("%d\n", &numbers[i]) < 1) {
+        if (scanf( "%d", &numbers[i]) < 1) {
             printf("Invalid number\n");
             return RETURN_SUCCESS;
         }
