@@ -16,7 +16,7 @@ int main(void){
     // allocate dynamic array to store all numbers.
     int *numbers = (int*) calloc(size, sizeof(int));
     #ifndef NDEBUG
-    printf("\n[* Created pointer at address: %d]\n", &numbers);
+    printf("\n[* Created pointer at address: 0x%xul]\n", &numbers);
     #endif
     // record every number in turn.
     printf("Enter numbers:\n");
@@ -32,7 +32,7 @@ int main(void){
     free(numbers);
 
     #ifndef NDEBUG
-    printf("\n[* Freed pointer at address: %d]\n", &numbers);
+    printf("\n[* Freed pointer at address: 0x%xul]\n", &numbers);
     #endif
 
     return RETURN_SUCCESS;
