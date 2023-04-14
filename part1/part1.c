@@ -41,7 +41,8 @@ int main(void){
 /**
  * @param num an <code style="font-family:'Courier New'"><b>int</b></code>.
  * @return If <code style="font-family:'Courier New'">num</code> can be represented as a power of two, i.e:
- * <code style="font-family:'Courier New'">num = 2^j</code>, returns <code style="font-family:'Courier New'">j</code>.
+ * <code style="font-family:'Courier New'">num = 2^j</code>, returns the exponent
+ * <code style="font-family:'Courier New'">j</code>.
  * Otherwise, returns the value saved for failure: <code style="font-family:'Courier New'">RETURN_FAILURE</code> in the
  * header <a style="font-family:'Courier New'">General.h</a>.
  */
@@ -50,7 +51,7 @@ int powerOfTwo(int num) {
     int j = 0;
     int powerOfTwo = 1;
 
-    for (; powerOfTwo < num; j++, powerOfTwo *= 2) {
+    for (; powerOfTwo <= num; j++, powerOfTwo *= 2) {
         if (powerOfTwo == num)
             return j;
     }
