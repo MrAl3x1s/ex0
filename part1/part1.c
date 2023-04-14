@@ -7,7 +7,7 @@ int main(void){
     #endif
     printf("Enter size of input:\n");
     int input;
-    if ((input = scanf("%d")) == 0) {
+    if ((readInt(&input)) == false) {
         return RETURN_ERROR;
     }
     if (input < MIN_SIZE) {
