@@ -1,5 +1,7 @@
 #include "ReadWrite.h"
 
+//TODO: add a function to parse a readline like scanf() does.
+
 bool readLine(char** output) {
 	// allocate space for new line, and create pointer.
 	char *input = (char*)(calloc(MAX_STR_SIZE, sizeof(char)));
