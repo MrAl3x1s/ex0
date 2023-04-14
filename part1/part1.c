@@ -29,6 +29,22 @@ int main(void){
         printf("\n[* Recorded number: %d]\n", numbers[i]);
         #endif
     }
+
+    //TODO: improve convolution by creating a sorted array, of all powers of 2, up to the maximum possibly necessary.
+    // create each following member, by multiplying the one before it by 2. Perform binary search for each member, until
+    // a power equal to it is found, or it is certain it does not exist.
+
+    int totalExponents = 0;
+
+    for (int i = 0; i < size; i++) {
+        int j;
+        if ((j = powerOfTwo(numbers[i])) > RETURN_FAILURE) {
+            printf("The number %d is a power of 2: %d = 2^%d\n", numbers[i], numbers[i], j);
+            totalExponents += j;
+        }
+    }
+    printf("Total exponent sum is %d", totalExponents);
+
     free(numbers);
 
     #ifndef NDEBUG
