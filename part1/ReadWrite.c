@@ -88,3 +88,37 @@ bool readChar(char* target) {
 	return true;
 }
 
+bool parseString(char* string, char* format) {
+    /*
+    FILE *stream = fopen("Messenger.str", "w+");
+    fputs(string, stream);
+    fscanf(stream, format, )
+     */
+
+    return true;
+}
+
+bool unfoldArray(Type type, void *arr, int size) {
+
+    return true;
+}
+
+char* toLowercase(const char *string) {
+    int len = 0;
+    for (; string[len] != '\0'; len++);
+    #ifndef NDEBUG
+        printf("\n* Received string \"%s\" of length: %d\n", string, len);
+    #endif
+    char *lowercase = calloc(++len, sizeof(char));
+    for (int i = 0; i < len; i++) {
+        char current = string[i];
+        if (current >= 'A' && current <= 'Z')
+            current = (char) ('a' + (current - 'A'));
+        #ifndef NDEBUG
+            printf("\n* Converted character %c to character %c\n", string[i], current);
+        #endif
+        lowercase[i] = current;
+    }
+    return lowercase;
+}
+
