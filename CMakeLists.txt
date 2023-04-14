@@ -6,6 +6,4 @@ set(CMAKE_C_STANDARD 11)
 include_directories(part1)
 
 add_executable(ex0
-        part1/part1.c
-        part1/ReadWrite.c
-        part1/Suspend.c)
+        part1/part1.c)
