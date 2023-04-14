@@ -22,7 +22,7 @@
     #ifndef RETURN_SUCCESS
         #define RETURN_SUCCESS 0
     #endif
-    #ifndef RETURN_ERROR
-        #define RETURN_ERROR (-1)
+    #ifndef RETURN_FAILURE
+        #define RETURN_FAILURE (-1)
     #endif
 #endif
