@@ -40,7 +40,6 @@ bool readLine(char** output) {
 	(*output) = str;
 
 	return true;
-    }
 }
 
 bool readInt(int* address) {
