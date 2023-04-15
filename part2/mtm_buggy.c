@@ -39,7 +39,8 @@ void swap(char** a, char** b) {
 }
 
 char* getLongestString(char** strings, int size) {
-	char* max = NULL;
+    // cannot initialise max to NULL, as it is getting compared immediately.
+	char* max = "";
 	for (int i = 0; i < size; i++) {
 		if (strlen(max) < strlen(strings[i])) {
 			max = strings[i];
@@ -72,15 +73,17 @@ void printResults(char** words, int size) {
 	char* longest = getLongestString(words, size);
 	printf("The longest word is: %s\n", longest);
 	sortStrings(words, size);
-	printf("The maximal word lexicographically is: %s\n", words[size]);
+	// array indexes only go up to size - 1, as they start from 0.
+    printf("The maximal word lexicographically is: %s\n", words[size - 1]);
 	printf("The minimal word lexicographically is: %s\n", words[0]);
 }
 
 char* readWord() {
-	char buffer[BUFFER_SIZE] = "";
-	scanf("%s", buffer);
-	if (strlen(buffer) < 1) {
-		return NULL;
+    // cannot be initialised as a string, as it makes the array constant, and marked as read only and not write.
+    char buffer[BUFFER_SIZE];
+    scanf("%s", buffer);
+    if (strlen(buffer) < 1) {
+        return NULL;
 	}
 	char* str = malloc(strlen(buffer) + 1);
 	if (!str) {
@@ -112,6 +115,9 @@ void freeWords(char** words, int size) {
 }
 
 int main() {
+    #ifndef NDEBUG
+    setbuf(stdout, 0);
+    #endif
 	int size = readSize();
 	if (size < 1) {
 		printf("Invalid size\n");
