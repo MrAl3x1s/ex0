@@ -43,7 +43,7 @@ int main(void){
             totalExponents += j;
         }
     }
-    printf("Total exponent sum is %d", totalExponents);
+    printf("Total exponent sum is %d\n", totalExponents);
 
     free(numbers);
 
