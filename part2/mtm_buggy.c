@@ -77,11 +77,8 @@ void printResults(char** words, int size) {
 }
 
 char* readWord() {
-    /*
-     * char arrays are constants, and cannot be modified.
-    char buffer[BUFFER_SIZE] = "";
-     */
-    char *buffer = (char*)calloc(BUFFER_SIZE, sizeof(char));
+    // cannot be initialised as a string, as it makes the array constant, and marked as read only and not write.
+    char buffer[BUFFER_SIZE];
     scanf("%s", buffer);
     if (strlen(buffer) < 1) {
         return NULL;
