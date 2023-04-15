@@ -77,10 +77,14 @@ void printResults(char** words, int size) {
 }
 
 char* readWord() {
-	char buffer[BUFFER_SIZE] = "";
-	scanf("%s", buffer);
-	if (strlen(buffer) < 1) {
-		return NULL;
+    /*
+     * char arrays are constants, and cannot be modified.
+    char buffer[BUFFER_SIZE] = "";
+     */
+    char *buffer = (char*)calloc(BUFFER_SIZE, sizeof(char));
+    scanf("%s", buffer);
+    if (strlen(buffer) < 1) {
+        return NULL;
 	}
 	char* str = malloc(strlen(buffer) + 1);
 	if (!str) {
@@ -90,7 +94,7 @@ char* readWord() {
 }
 
 char** readWords(int size) {
-	char** words = malloc(size * sizeof(*words));
+	char** words = (char**)malloc(size * sizeof(*words));
 	if (words == NULL) {
 		return NULL;
 	}
@@ -112,6 +116,9 @@ void freeWords(char** words, int size) {
 }
 
 int main() {
+    #ifndef NDEBUG
+    setbuf(stdout, 0);
+    #endif
 	int size = readSize();
 	if (size < 1) {
 		printf("Invalid size\n");
