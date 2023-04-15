@@ -3,7 +3,7 @@ project(ex0 C)
 
 set(CMAKE_C_STANDARD 11)
 
-include_directories(part1)
+include_directories(part2)
 
 add_executable(ex0
-        part1/part1.c)
+        part2/mtm_buggy.c)
