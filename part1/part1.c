@@ -1,4 +1,11 @@
-#include "part1.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#define MAX_STR_SIZE 256
+#define MIN_SIZE 1
+#define RETURN_SUCCESS 0
+#define RETURN_FAILURE (-1)
+int powerOfTwo(int);
 
 int main(void){
     // necessary for letting the Clion debugger print correctly and not get stuck.
@@ -7,14 +14,15 @@ int main(void){
     #endif
     printf("Enter size of input:\n");
     int size;
-    scanf("%d", &size);
-    if (size < MIN_SIZE) {
+    if (scanf("%d", &size) != 1 || size < MIN_SIZE) {
         printf("Invalid size\n");
         return RETURN_SUCCESS;
     }
 
     // allocate dynamic array to store all numbers.
-    int *numbers = (int*) calloc(size, sizeof(int));
+    int *numbers = (int*) malloc(size*sizeof(int));
+    if (numbers == NULL)
+        return RETURN_SUCCESS;
     #ifndef NDEBUG
     printf("\n[* Created pointer at address: 0x%xul]\n", &numbers);
     #endif
@@ -23,6 +31,7 @@ int main(void){
     for (int i = 0; i < size; i++) {
         if (scanf( "%d", &numbers[i]) < 1) {
             printf("Invalid number\n");
+            free(numbers);
             return RETURN_SUCCESS;
         }
         #ifndef NDEBUG
@@ -30,9 +39,6 @@ int main(void){
         #endif
     }
 
-    //TODO: improve convolution by creating a sorted array, of all powers of 2, up to the maximum possibly necessary.
-    // create each following member, by multiplying the one before it by 2. Perform binary search for each member, until
-    // a power equal to it is found, or it is certain it does not exist.
 
     int totalExponents = 0;
 
